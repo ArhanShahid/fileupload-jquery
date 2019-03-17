@@ -19,7 +19,7 @@ $(() => {
                 formData.append('image', file);
                 $('#multipart-file-uploading').show();
                 $.ajax({
-                    'url': `/images/upload`,
+                    'url': `http://localhost:3000/api/v1/upload`,
                     'type': 'POST',
                     'data': formData,
                     'contentType': false,
@@ -46,8 +46,20 @@ $(() => {
                 const base64 = fileReader.result.toString().split(',')[1];
                 const name = event.target.files[0].name;
                 $('#base64-file-uploading').show();
-                console.log(base64);
-                console.log(name);
+                $.ajax({
+                    'url': `http://localhost:3000/api/v1/upload`,
+                    'type': 'POST',
+                    'data': {
+                        fileName: name,
+                        base64: base64
+                    },
+                    'success': function (success) {
+                        console.log('ajax success: ', success);
+                    },
+                    'error': function (error) {
+                        console.error('ajax error: ', error);
+                    }
+                });
             }
         } catch (error) {
             console.error(error);
