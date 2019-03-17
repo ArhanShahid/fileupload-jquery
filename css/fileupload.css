@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.line {
+    text-decoration: line-through;
+}
+
+.form-group .form-control {
+    width: 600px;
+}
+
+#todos-list {
+    list-style: none;
+}
+
+.task {
+    padding: 10px 10px 10px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.task button {
+    padding: 3px 10px;
+    float: right;
+}
